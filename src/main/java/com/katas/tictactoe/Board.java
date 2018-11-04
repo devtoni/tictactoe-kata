@@ -25,4 +25,8 @@ public class Board {
     public Players getPlayer(Row row, Column column) {
         return board.get((row.getIndex() * 3 + column.getIndex()));
     }
+
+    public boolean isFull() {
+        return board.stream().allMatch(square -> square != Players.EMPTY);
+    }
 }
