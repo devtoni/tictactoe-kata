@@ -1,10 +1,10 @@
 Tic Tac Toe rules:
 
-X always goes first.
+ok --> X always goes first.
 
-Players cannot play on a played position
+ok --> Players cannot play on a played position
 
-Players alternate placing X’s and O’s on the board until either:
+ok --> Players alternate placing X’s and O’s on the board until either:
 
 One player has three in a row, horizontally, vertically or diagonally
 All nine squares are filled.

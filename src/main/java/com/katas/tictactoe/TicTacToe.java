@@ -9,26 +9,13 @@ public class TicTacToe {
     }
 
     public String currentPlayer() {
-        return player.representation;
+        return player.getRepresentation();
     }
 
     public void nextTurn() {
         player = Players.of(player).equals("X") ? Players.O : Players.X;
     }
 
-    private enum Players {
-        X("X"), O("O");
-
-        private final String representation;
-
-        Players(String representation) {
-            this.representation = representation;
-        }
-
-        public static String of(Players player) {
-            return player.representation;
-        }
-    }
 }
 
 
