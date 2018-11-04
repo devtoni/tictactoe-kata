@@ -12,4 +12,4 @@ ok --> All nine squares are filled.
 
 ok --> If a player is able to draw three X’s or three O’s in a row, that player wins.
 
-If all nine squares are filled and neither player has three in a row, the game is a draw.
+ok --> If all nine squares are filled and neither player has three in a row, the game is a draw.
