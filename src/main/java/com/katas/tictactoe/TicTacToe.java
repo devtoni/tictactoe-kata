@@ -2,22 +2,32 @@ package com.katas.tictactoe;
 
 public class TicTacToe {
 
-    private Players player;
+    private final Board board;
+    private Players currentPlayer;
 
-    public TicTacToe(){
-        player = Players.X;
+    public TicTacToe(Board board){
+        this.currentPlayer = Players.X;
+        this.board = board;
     }
 
-    public String currentPlayer() {
-        return player.getRepresentation();
+    public boolean currentPlayer(Players player) {
+        return currentPlayer == player;
     }
 
-    public void nextTurn() {
-        player = Players.of(player).equals("X") ? Players.O : Players.X;
+    public void play(Row row, Column column) {
+        board.place(currentPlayer, row, column);
+        alternatePlayer();
     }
 
+    private void alternatePlayer() {
+        currentPlayer = Players.of(currentPlayer).equals("X") ? Players.O : Players.X;
+    }
+
+    public boolean isWinner(Players player) {
+        return board.isThreeInARow(player);
+    }
+
+    public boolean isDraw(){
+        return board.isFull() && !board.isThreeInARow(Players.X) || !board.isThreeInARow(Players.O);
+    }
 }
-
-
-// nextTurn (Row 2: Col 2)
-   // board.place(currnt, 2, 2)

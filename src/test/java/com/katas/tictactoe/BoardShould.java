@@ -29,4 +29,47 @@ public class BoardShould {
 
         assertThat(board.isFull(), is(true));
     }
+
+    @Test
+    public void player_X_wins_with_a_row_horizontally(){
+
+        Board board = new Board();
+
+        board.place(Players.X, Row.TOP, Column.LEFT);
+        board.place(Players.O, Row.MIDDLE, Column.MIDDLE);
+        board.place(Players.X, Row.TOP, Column.RIGHT);
+        board.place(Players.O, Row.MIDDLE, Column.RIGHT);
+        board.place(Players.X, Row.TOP, Column.MIDDLE);
+
+        assertThat(board.isThreeInARow(Players.X), is(true));
+    }
+
+    @Test
+    public void player_X_wins_with_a_row_vertically(){
+        Board board = new Board();
+
+        board.place(Players.X, Row.TOP, Column.MIDDLE);
+        board.place(Players.O, Row.TOP, Column.RIGHT);
+        board.place(Players.X, Row.MIDDLE, Column.MIDDLE);
+        board.place(Players.O, Row.BOTTOM, Column.RIGHT);
+        board.place(Players.X, Row.BOTTOM, Column.MIDDLE);
+
+        assertThat(board.isThreeInARow(Players.X), is(true));
+    }
+
+    @Test
+    public void player_X_wins_with_a_row_diagonally(){
+        Board board = new Board();
+
+        board.place(Players.X, Row.TOP, Column.LEFT);
+        board.place(Players.O, Row.MIDDLE, Column.LEFT);
+        board.place(Players.X, Row.MIDDLE, Column.MIDDLE);
+        board.place(Players.O, Row.MIDDLE, Column.RIGHT);
+        board.place(Players.X, Row.BOTTOM, Column.RIGHT);
+
+        assertThat(board.isThreeInARow(Players.X), is(true));
+    }
+
+
+
 }
