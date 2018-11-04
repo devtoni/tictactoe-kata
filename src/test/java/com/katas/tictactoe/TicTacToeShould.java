@@ -27,4 +27,5 @@ public class TicTacToeShould {
 
         assertThat(ticTacToe.currentPlayer(), is("X"));
     }
+
 }
